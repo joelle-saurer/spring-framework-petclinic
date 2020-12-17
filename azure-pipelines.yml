@@ -38,6 +38,6 @@ stages:
                         TomcatUrl: 'http://localhost:8080'
                         Username: '$(username)'
                         Password: '$(password)'
-                        Warfile: '/home/azureuser/petclinic/spring-framework-petclinic/target/petclinics.war'
+                        Warfile: '/home/azureuser/petclinic/spring-framework-petclinic/target/petclinic.war'
                         Context: '/pet'
                         ServerVersion: '7OrAbove'
