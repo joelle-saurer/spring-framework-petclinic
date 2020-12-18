@@ -18,26 +18,12 @@ stages:
           inputs:
             mavenPomFile: 'pom.xml'
             goals: 'package'
+        - task: CopyFiles@2
+          displayName: 'Copy Files to artifact staging directory'
+          inputs:
+            SourceFolder: '$(System.DefaultWorkingDirectory)'
+            Contents: '**/target/*.?(war|jar)'
+            TargetFolder: $(Build.ArtifactStagingDirectory)
+        - upload: $(Build.ArtifactStagingDirectory)
+          artifact: pet
 
-- stage: Deploy
-  displayName: Deploy application
-  dependsOn: Build
-  jobs:
-    - deployment: VMDeploy
-      environment:
-        name: VM
-        resourceType: VirtualMachine
-        tags: CICDdeploy
-      strategy:
-        runOnce:
-          deploy:
-            steps:
-            
-            - task: TomcatDeployment@1
-              inputs:
-                        TomcatUrl: 'http://localhost:8080'
-                        Username: '$(username)'
-                        Password: '$(password)'
-                        Warfile: '/home/azureuser/azagent/myagent/_work/3/s/target/petclinic.war'
-                        Context: '/pet'
-                        ServerVersion: '7OrAbove'
