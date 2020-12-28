@@ -6,12 +6,12 @@
 trigger: 
 - master
 
-pool: 'Default'
 
 stages:
 - stage: Build
   jobs: 
     - job: Build
+      pool: 'Default'
       displayName: Build Maven project
       steps:
         - task: Maven@3
@@ -26,4 +26,23 @@ stages:
             TargetFolder: $(Build.ArtifactStagingDirectory)
         - upload: $(Build.ArtifactStagingDirectory)
           artifact: pet
-
+    
+    - job: Test
+      pool: 
+        vmImage: 'windows-latest'
+        displayName: Test Web App
+        steps:
+          - task: VisualStudioTestPlatformInstaller@1
+            inputs:
+              packageFeedSelector: 'nugetOrg'
+              versionSelector: 'latestPreRelease'
+          
+    
+          - task: VSTest@2
+            inputs:
+              testSelector: 'testAssemblies'
+              testAssemblyVer2: |
+                **\*test*.dll
+                !**\*TestAdapter.dll
+                !**\obj\**
+              searchFolder: '$(System.DefaultWorkingDirectory)'
