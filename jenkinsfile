@@ -1,0 +1,20 @@
+pipeline {
+    
+    agent any
+ 
+ 
+  
+    stages {   
+        stage('Run Tomcat server and chromedriver headless') {
+            steps { 
+              sh 'systemctl start tomcat.service; chromedriver --url-base=/wd/hub'
+            }
+        }
+     
+        stage('Run Selenium test') {
+            steps {
+              sh 'python3 /usr/local/bin/sel_test.py'
+            }
+        }
+     }
+}
