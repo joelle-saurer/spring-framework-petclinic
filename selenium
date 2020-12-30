@@ -9,5 +9,5 @@ pipeline {
               sh 'python3 /home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'
             }
         }
-     }
+
 }
