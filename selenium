@@ -9,5 +9,11 @@ pipeline {
               sh 'python3 /home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'
             }
         }
+
+        stage('Report test results') {
+            steps {
+              sh 'publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            }
+        }  
     }
 }
