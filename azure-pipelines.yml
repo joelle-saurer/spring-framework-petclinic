@@ -26,5 +26,7 @@ stages:
             TargetFolder: $(Build.ArtifactStagingDirectory)
         - upload: $(Build.ArtifactStagingDirectory)
           artifact: pet
-#script:python3 /usr/local/bin/sel_test.py
+#script: python3 /usr/local/bin/sel_test.py
+
+#script: jmeter -n -t [jmx file] -l [results file] -e -o [Path to output folder]
 
