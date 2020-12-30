@@ -26,5 +26,5 @@ stages:
             TargetFolder: $(Build.ArtifactStagingDirectory)
         - upload: $(Build.ArtifactStagingDirectory)
           artifact: pet
-    
+#script:python3 /usr/local/bin/sel_test.py
 
