@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool: 'Default'
+
+stages:
+- stage: Run web server
+  jobs: 
+    - job: 
+      steps:
+      - script: 
+
+- stage: Test Application
+  jobs:
+  - job: 
+    steps:
+    - script: python3 /usr/local/bin/sel_test.py

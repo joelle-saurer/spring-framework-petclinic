@@ -1,0 +1,13 @@
+pipeline {
+    
+    agent any
+ 
+ 
+   
+        stage('Run Selenium test') {
+            steps {
+              sh 'python3 /usr/local/bin/sel_test.py'
+            }
+        }
+     }
+}
