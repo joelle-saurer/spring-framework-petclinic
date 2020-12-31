@@ -7,7 +7,7 @@ pipeline {
         stage('Run JMeter test') {
             steps {
               sh '''
-              /opt/jmeter/apache-jmeter-5.4/bin/jmeter -n -Jjmeterengine.force.system.exit=true -t /home/azureuser/petclinic/spring-framework-petclinic/petclinicjmeter.jmx -l /var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/testResult.jtl 
+              /opt/jmeter/apache-jmeter-5.4/bin/jmeter -n -t /home/azureuser/petclinic/spring-framework-petclinic/petclinicjmeter.jmx -l /var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/testResult.jtl 
               '''
               
               perfReport '/var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/testResult.jtl' 
