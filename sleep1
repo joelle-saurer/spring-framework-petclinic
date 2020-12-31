@@ -4,4 +4,4 @@ echo "Run JMeter test once a day"
 
 sleep 23s
 
-echo "Test completed"
+echo "Start the load test"
