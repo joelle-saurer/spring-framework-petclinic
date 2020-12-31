@@ -12,7 +12,14 @@ pipeline {
 
         stage('Report test results') {
             steps {
-              sh 'publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'reports', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+              publishHTML (target: [
+               allowMissing: false, 
+               alwaysLinkToLastBuild: false, 
+	       keepAll: false, 
+	       reportDir: 'reports', 
+	       reportFiles: 'index.html', 
+	       reportName: 'HTML Report'
+	      ])
             }
         }  
     }
