@@ -1,0 +1,26 @@
+pipeline {
+    
+    agent any
+ 
+    stages {
+   
+        stage('Run Selenium test') {
+            steps {
+              sh 'python3 /var/lib/jenkins/workspace/petclinic/test_petclinic.py'
+            }
+        }
+
+        stage('Report test results') {
+            steps {
+              publishHTML (target: [
+               allowMissing: false, 
+               alwaysLinkToLastBuild: false, 
+	       keepAll: false, 
+	       reportDir: 'reports', 
+	       reportFiles: 'index.html', 
+	       reportName: 'HTML Report'
+	      ])
+            }
+        }  
+    }
+}
