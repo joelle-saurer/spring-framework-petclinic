@@ -14,7 +14,7 @@ driver = webdriver.Chrome(options=chrome_options)
 
 class TestPetclinic():
   def setup_method(self, method):
-    self.driver = webdriver.Chrome()
+    self.driver = driver #webdriver.Chrome()
     self.vars = {}
   
   def teardown_method(self, method):
@@ -24,7 +24,7 @@ class TestPetclinic():
     # Test name: Petclinic
     # Step # | name | target | value
     # 1 | open | /petclinics/ | 
-    self.driver.get("http://168.62.62.94:8080/petclinics/")
+    self.driver.get("http://40.114.35.24:8080/petclinics/")
     # 2 | setWindowSize | 1450x786 | 
     self.driver.set_window_size(1450, 786)
     # 3 | click | css=li:nth-child(2) > a | 
