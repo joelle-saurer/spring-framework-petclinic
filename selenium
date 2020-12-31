@@ -6,7 +6,7 @@ pipeline {
    
         stage('Run Selenium test') {
             steps {
-              sh 'python3 /home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'
+              sh 'python3 /var/lib/jenkins/workspace/petclinic/test_petclinic.py'
             }
         }
 
