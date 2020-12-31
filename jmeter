@@ -7,7 +7,7 @@ pipeline {
         stage('Run JMeter test') {
             steps {
               sh '''
-              /opt/jmeter/apache-jmeter-5.4 -n -t /home/azureuser/petclinic/spring-framework-petclinic/petclinicjmeter.jmx -l /var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/testResult.jtl -j jmeter.save.saveservic                  e.output_format=xml 
+              /opt/jmeter/apache-jmeter-5.4/bin/jmeter.sh -n -t /home/azureuser/petclinic/spring-framework-petclinic/petclinicjmeter.jmx -l testResult.jtl 
               '''
               perfReport '/var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/results.jtl'
             }
