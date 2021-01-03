@@ -6,11 +6,15 @@ pipeline {
    
         stage('Run JMeter test') {
             steps {
-              sh '''
-              /opt/jmeter/apache-jmeter-5.4/bin/jmeter -n -t /home/azureuser/petclinic/spring-framework-petclinic/petclinicjmeter.jmx -l /var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/testResult.jtl 
-              '''
-              
-              perfReport '/var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/testResult.jtl' 
+            
+              sh '/home/azureuser/petclinic/spring-framework-petclinic/sleep1'
+
+              sh '/opt/jmeter/apache-jmeter-5.4/bin/jmeter -n -t /home/azureuser/petclinic/spring-framework-petclinic/LoadTestPet.jmx -l /var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/LoadTestResult.jtl' 
+             
+              sh 'echo Test completed'
+              sh 'echo Publish JMeter reports'
+
+              perfReport '/var/lib/jenkins/workspace/jmeterTest/src/test/jmeter/LoadTestResult.jtl' 
             }
         }
      }
