@@ -10,11 +10,11 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.chrome.options import Options
 chrome_options = Options()
 chrome_options.add_argument("--headless")
-driver = webdriver.Chrome(options=chrome_options)
+
 
 class TestPetclinic():
   def setup_method(self, method):
-    self.driver = driver #webdriver.Chrome()
+    self.driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", options=chrome_options)
     self.vars = {}
   
   def teardown_method(self, method):
@@ -62,4 +62,10 @@ class TestPetclinic():
     self.driver.find_element(By.CSS_SELECTOR, "option:nth-child(3)").click()
     # 19 | click | css=tr:nth-child(3) > td | 
     self.driver.find_element(By.CSS_SELECTOR, "tr:nth-child(3) > td").click()
-  
+
+TestClass = TestPetclinic()
+TestClass.setup_method("")
+TestClass.test_petclinic()
+print ("Test is executed")
+TestClass.teardown_method("")
+
