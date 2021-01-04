@@ -19,7 +19,7 @@ pipeline {
         stage('Selenium test') {
             steps {
               echo 'Testing the application'
-              sh "python3 '/var/lib/jenkins/workspace/Petclinic\ Pipeline/src/test/java/org/springframework/samples/petclinic/test_petclinic.py'"
+              sh "python3 '/var/lib/jenkins/workspace/Petclinic Pipeline/src/test/java/org/springframework/samples/petclinic/test_petclinic.py'"
             }
         }
 
