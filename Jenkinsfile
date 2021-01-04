@@ -7,10 +7,11 @@ pipeline {
     }
 
     stages {   
-        stage('Build') {
+        stage('deploy') {
             steps {
-              echo 'Deploying the Application'
-              sh 'mvn package'
+              echo 'Deploying the to Nexus Repo'
+              echo 'Application is running on tomcat server'
+              sh 'mvn deploy'
             }
         }
 
