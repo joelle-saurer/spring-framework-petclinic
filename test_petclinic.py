@@ -63,7 +63,7 @@ class TestPetclinic():
     self.driver.find_element(By.CSS_SELECTOR, "option:nth-child(3)").click()
     # 19 | click | css=tr:nth-child(3) > td | 
     self.driver.find_element(By.CSS_SELECTOR, "tr:nth-child(3) > td").click()
-    self.driver.title
+    print('Title is: ' + self.driver.title)
 
 TestClass = TestPetclinic()
 TestClass.setup_method("")
