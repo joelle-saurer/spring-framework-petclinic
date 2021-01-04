@@ -4,6 +4,12 @@ pipeline {
  
     stages {
    
+        stage('Maven build') {
+            steps {
+              sh 'mvn test'
+            }
+        }
+
         stage('Run Selenium test') {
             steps {
               sh 'python3 /home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'
