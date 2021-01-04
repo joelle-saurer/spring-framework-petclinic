@@ -11,7 +11,7 @@ pipeline {
             steps {
               echo 'Deploying the to Nexus Repo'
               echo 'Application is running on tomcat server'
-              sh 'mvn deploy'
+              sh 'mvn deploy -Dmaven.install.skip=true'
             }
         }
 
