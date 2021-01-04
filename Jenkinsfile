@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-    stages {   
+       
         stage('Selenium test') {
             steps {
               echo 'Testing the application'
