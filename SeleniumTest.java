@@ -45,6 +45,7 @@ public class SeleniumTest {
     driver.findElement(By.name("lastName")).sendKeys("Doe");
     driver.findElement(By.cssSelector(".btn:nth-child(1)")).click();
     driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click();
+    System.out.println("Title of the page is -> " + driver.getTitle());
     driver.close();
   }
 }
