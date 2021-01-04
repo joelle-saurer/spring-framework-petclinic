@@ -356,7 +356,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId> 
 				<version>2.2</version> 
 				<configuration> 
-				  <port>9090</port> 
+				  <url>http://40.114.35.24:8080/manager</url>
 				</configuration> 
 			</plugin>
 
