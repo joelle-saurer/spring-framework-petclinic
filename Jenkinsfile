@@ -5,27 +5,22 @@ pipeline {
     tools {
         maven "Maven"
     }
-  
+
     stages {   
-        stage('Test') {
-            steps { 
-              echo 'Testing the Application'
-              sh 'mvn test'
-            }
-        }
-     
         stage('Build') {
             steps {
               echo 'Deploying the Application'
               sh 'mvn package'
             }
         }
-   
-        stage('Deploy') {
+
+    stages {   
+        stage('Selenium test') {
             steps {
-              echo 'Deploying the Application'
-              sh 'mvn clean deploy'
+              echo 'Testing the application'
+              sh 'python3 /home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'
             }
         }
+
     }
 }
