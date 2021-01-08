@@ -2,20 +2,26 @@ pipeline {
     
     agent any
  
-    stages {
-   
-        stage('Maven build') {
+    tools {
+        maven "Maven"
+    }
+
+    stages {   
+        stage('deploy') {
             steps {
-              sh 'mvn test'
+              echo 'Deploying the to Nexus Repo'
+              echo 'Application is running on tomcat server'
+              sh 'mvn deploy -Dmaven.install.skip=true'
             }
         }
 
-        stage('Run Selenium test') {
+       
+        stage('Selenium test') {
             steps {
-              sh 'python3 /home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'
+              echo 'Testing the application'
+              sh "python3 '/var/lib/jenkins/workspace/SeleniumTest/src/test/java/org/springframework/samples/petclinic/AddOwnerTest.java'"
             }
         }
 
-      
     }
 }
