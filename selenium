@@ -19,8 +19,8 @@ pipeline {
         stage('Selenium test') {
             steps {
               echo 'Testing the application'
-              sh "javac '/var/lib/jenkins/workspace/SeleniumTest/src/test/java/org/springframework/samples/petclinic/AddOwnerTest.java'"
-              sh "java '/var/lib/jenkins/workspace/SeleniumTest/src/test/java/org/springframework/samples/petclinic/AddOwnerTest.java'" 
+              sh "javac '/home/azureuser/petclinic/spring-framework-petclinic/AddOwnerTest.java'"
+              sh "java '/home/azureuser/petclinic/spring-framework-petclinic/AddOwnerTest.java'" 
             }
         }
 
