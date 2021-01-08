@@ -33,7 +33,7 @@ public class AddOwnerTest {
  
   @Before
   public void setUp() {
-    print("Setup Add Owner Test")
+    print("Setup Add Owner Test");
     //Setting system properties of ChromeDriver
     System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
     
@@ -47,12 +47,12 @@ public class AddOwnerTest {
   }
   @After
   public void tearDown() {
-    print("Selenium Test executed")
+    print("Selenium Test executed");
     driver.quit();
   }
   @Test
   public void addOwner() {
-    print("Start Selenium Test")
+    print("Start Selenium Test");
     // Test name: Add_Owner
     // Step # | name | target | value | comment
     // 1 | open | /petclinics/ |  | 
