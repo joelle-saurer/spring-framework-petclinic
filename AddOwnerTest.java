@@ -22,6 +22,8 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+//headless mode
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class AddOwnerTest {
   static WebDriver driver; 
@@ -38,7 +40,7 @@ public class AddOwnerTest {
     //Running test headless
     ChromeOptions chromeOptions = new ChromeOptions();
     chromeOptions.addArguments("--headless");
-    
+
     driver = new ChromeDriver(chromeOptions);
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
