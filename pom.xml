@@ -340,9 +340,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven-surefire-plugin.version}</version>
 				<configuration>
-                    <includes>
-                        <include>SeleniumTest.java</include>
-                    </includes>
                     <shutdown>kill</shutdown>
 				</configuration>
             </plugin>

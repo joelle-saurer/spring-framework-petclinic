@@ -22,22 +22,35 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+
 public class AddOwnerTest {
-  private WebDriver driver;
+  static WebDriver driver; 
+  //private or static??
   private Map<String, Object> vars;
   JavascriptExecutor js;
+ 
   @Before
   public void setUp() {
-    driver = new ChromeDriver();
+    print("Setup Add Owner Test")
+    //Setting system properties of ChromeDriver
+    System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+    
+    //Running test headless
+    ChromeOptions chromeOptions = new ChromeOptions();
+    chromeOptions.addArguments("--headless");
+    
+    driver = new ChromeDriver(chromeOptions);
     js = (JavascriptExecutor) driver;
     vars = new HashMap<String, Object>();
   }
   @After
   public void tearDown() {
+    print("Selenium Test executed")
     driver.quit();
   }
   @Test
   public void addOwner() {
+    print("Start Selenium Test")
     // Test name: Add_Owner
     // Step # | name | target | value | comment
     // 1 | open | /petclinics/ |  | 
