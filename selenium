@@ -19,10 +19,8 @@ pipeline {
         stage('Selenium test') {
             steps {
               echo 'Testing the application'
-              sh "javac '/home/azureuser/petclinic/spring-framework-petclinic/AddOwnerTest.java'"
-              sh "java '/home/azureuser/petclinic/spring-framework-petclinic/AddOwnerTest.java'" 
+              sh "python3 '/home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'"
             }
         }
-
     }
 }
