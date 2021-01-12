@@ -19,7 +19,7 @@ pipeline {
         stage('Selenium test') {
             steps {
               echo 'Testing the application'
-              sh "python3 '/home/azureuser/Provisioning/test_petclinic.py'"
+              sh "python3 '/home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'"
             }
        }
 
