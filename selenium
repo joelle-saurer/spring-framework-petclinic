@@ -19,8 +19,8 @@ pipeline {
         stage('Selenium test') {
             steps {
               echo 'Testing the application'
-              sh 'cd /home/azureuser/petclinic/spring-framework-petclinic/'
-              sh 'pytest -s -v --html=report.html test_petclinic.py'
+              sh "pytest -s -v --html=report.html '/home/azureuser/petclinic/spring-framework-petclinic/test_petclinic.py'"
+              
             }
         }
     }
