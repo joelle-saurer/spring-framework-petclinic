@@ -67,9 +67,4 @@ class TestPetclinic():
     self.driver.find_element(By.CSS_SELECTOR, "tr:nth-child(3) > td").click()
     print('Title is: ' + self.driver.title)
 
-TestClass = TestPetclinic()
-TestClass.test_setup("")
-TestClass.test_petclinic()
-print ("Test is executed")
-TestClass.test_teardown("")
 
