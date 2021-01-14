@@ -14,6 +14,8 @@ chrome_options.add_argument("--headless")
 
 
 class TestPetclinic():
+      
+  @pytest.fixture()    
   def test_setup(self, method):
     self.driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", options=chrome_options)
     self.vars = {}
