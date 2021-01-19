@@ -17,7 +17,7 @@ class TestPetclinic():
       
   @pytest.fixture()    
   def method(self):
-    self.driver = webdriver.Chrome(executable_path="/usr/local/bin/chromedriver", options=chrome_options)
+    self.driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", options=chrome_options)
     self.vars = {}
   
   def test_teardown(self, method):
@@ -27,7 +27,7 @@ class TestPetclinic():
     # Test name: Petclinic
     # Step # | name | target | value
     # 1 | open | /petclinics/ | 
-    self.driver.get("http://40.114.35.24:8080/petclinics/")
+    self.driver.get("http://192.168.122.1:8083/petclinics/")
     # 2 | setWindowSize | 1450x786 | 
     self.driver.set_window_size(1450, 786)
     # 3 | click | css=li:nth-child(2) > a | 
