@@ -19,7 +19,7 @@ pipeline {
         stage('Selenium test') {
             steps {
               echo 'Testing the application'
-              sh "pytest -s -v --html=report.html '/var/lib/jenkins/workspace/seleniumTest/test_petclinic.py'"
+              sh "python -m pytest '/var/lib/jenkins/workspace/seleniumTest/test_petclinic.py'"
               
             }
         }
